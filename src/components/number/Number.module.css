@@ -1,5 +1,4 @@
 .number-container {
-    position: absolute;
     left: 0;
     top: 0;
     padding: 10px;
@@ -7,10 +6,18 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    border: none;
+    background: none;
+    outline: none;
 }
 
 .number-container:hover {
     color: #0088ff;
     background-color: #eeeeee;
     border-radius: 50%;
+}
+
+.solved {
+    color: darkgreen;
+    background-color: #d1ffd7;
 }

@@ -1,20 +1,22 @@
 import classes from './Number.module.css';
+import {useContext, useState} from "react";
+import {GameContext} from "../../contexts/context";
 
 const Number = props => {
-    const x_per = Math.random()*(props.panelSize - 40);
-    const y_per = Math.random()*(props.panelSize - 40);
-    const NUMBER_SIZE = 40;
+    const [solved, setSolved] = useState(false);
+    const ctx = useContext(GameContext);
+    const curNumber = props.numberValue;
 
-    const style = {
-        transform: `translate(${x_per}px, ${y_per}px)`,
-        transformBox: 'content-box',
-        height: NUMBER_SIZE,
-        width: NUMBER_SIZE
+    const onClickedHanlder = () => {
+        if (curNumber === ctx.nextNumber) {
+            ctx.setNextNumber(curNumber + 1);
+            if (!solved) {
+                setSolved(true);
+            }
+        }
     }
     return (
-        <div className={classes['number-container']} style={style}>
-            <span>{props.numberValue}</span>
-        </div>
+        <button onClick={onClickedHanlder} className={`${classes['number-container']} ${solved && classes.solved}`}>{curNumber}</button>
     )
 }
 
