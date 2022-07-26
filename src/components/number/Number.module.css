@@ -1,0 +1,16 @@
+.number-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.number-container:hover {
+    color: #0088ff;
+    background-color: #eeeeee;
+    border-radius: 50%;
+}
